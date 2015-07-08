@@ -2,13 +2,9 @@ package arrays;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 public class SecondLargestTest {
-	@Rule
-	public ExpectedException thrown = ExpectedException.none();
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testEmptyArray() {
