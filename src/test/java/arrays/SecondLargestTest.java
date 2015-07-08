@@ -10,22 +10,22 @@ public class SecondLargestTest {
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
 
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testEmptyArray() {
 		int[] array = {};
-		doTestWithExceptions(array);
+		doTest(1, array);
 	}
 
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testOneElementArray() {
 		int[] array = { 1 };
-		doTestWithExceptions(array);
+		doTest(1, array);
 	}
 
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void allValuesEqual() {
 		int[] array = { 5, 5, 5, 5, 5, 5, 5 };
-		doTestWithExceptions(array);
+		doTest(1, array);
 	}
 
 	@Test
@@ -68,11 +68,6 @@ public class SecondLargestTest {
 	private void doTest(int expectedValue, int[] array) {
 		int actualValue = SecondLargestEl.secondLargestNumber(array);
 		assertEquals(expectedValue, actualValue);
-	}
-
-	private void doTestWithExceptions(int[] array) {
-		thrown.expect(IllegalArgumentException.class);
-		SecondLargestEl.secondLargestNumber(array);
 	}
 
 }
